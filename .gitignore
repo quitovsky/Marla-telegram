@@ -2,3 +2,5 @@
 /bot/node_modules
 /bot/.env
 /bot/db.sqlite
+/frontend/node_modules
+/frontend/.next
