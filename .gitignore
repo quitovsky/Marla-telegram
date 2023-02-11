@@ -1,4 +1,4 @@
-node_modules
-.idea
-.env
-db.sqlite
+/.idea
+/bot/node_modules
+/bot/.env
+/bot/db.sqlite
