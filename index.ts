@@ -1,7 +1,7 @@
+import "dotenv/config"
 import { Bot } from 'grammy'
 import {MarlaContext} from "./utils/types/context";
 import {marlaMiddleware} from "./middlewares/main";
-import "dotenv/config"
 
 let token = process.env.BOT_TOKEN
 
