@@ -1,6 +1,19 @@
+# root
 /.idea
+/node_modules
+/pnpm-lock.yaml
+
+# bot
 /bot/node_modules
 /bot/.env
-/bot/db.sqlite
+/bot/pnpm-lock.yaml
+
+# frontend
 /frontend/node_modules
 /frontend/.next
+/frontend/pnpm-lock.yaml
+
+# prisma (sqlite)
+/prisma/dev.db
+/prisma/dev.db-journal
+/prisma/migrations
