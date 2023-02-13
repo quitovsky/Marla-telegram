@@ -9,3 +9,10 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model StickersStat {
+  id        Int @id @default(autoincrement())
+  chatId    Int
+  senderId  Int
+  stickerId Int
+}

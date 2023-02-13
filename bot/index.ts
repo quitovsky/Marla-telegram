@@ -2,12 +2,16 @@ import "dotenv/config"
 import { Bot } from 'grammy'
 import {MarlaContext} from "./utils/types/context";
 import {marlaMiddleware} from "./middlewares/main";
+import {statistics} from "./plugins/statistics";
 
 let token = process.env.BOT_TOKEN
 
 const bot = new Bot<MarlaContext>(`${token}`)
 
 bot.use(marlaMiddleware)
+
+// load plugins
+bot.use(statistics);
 
 bot.command("start", async (ctx) => {
 	await ctx.reply("Ky")
@@ -18,4 +22,15 @@ bot.on('message:text', async(ctx) => {
 	console.log(ctx.m)
 })
 
-bot.start().catch(console.log)
+async function start() {
+	bot.start()
+		.catch(console.log)
+	let interval = setInterval(() => {
+		if(bot.isInited()) {
+			console.log(`Logged in as ${bot.botInfo.username}`)
+			clearInterval(interval)
+		}
+	}, 500)
+}
+
+start();
