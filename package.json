@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"start": "npx prisma migrate dev"
+		"migrate:dev": "npx prisma migrate dev"
 	},
 	"devDependencies": {
 		"prisma": "^4.10.1"
