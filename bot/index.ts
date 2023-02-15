@@ -21,7 +21,7 @@ async function start() {
 			console.log(`Logged in as ${bot.botInfo.username}`)
 			clearInterval(interval)
 		}
-	}, 500)
+	}, 100)
 }
 
 start();
