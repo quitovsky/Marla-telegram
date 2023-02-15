@@ -2,6 +2,7 @@
 /.idea
 /node_modules
 /pnpm-lock.yaml
+/.env
 
 # bot
 /bot/node_modules
