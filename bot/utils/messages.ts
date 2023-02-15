@@ -1,0 +1,1 @@
+export const onlyForChats = "Эта команда только для чатов"
