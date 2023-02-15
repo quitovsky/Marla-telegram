@@ -6,21 +6,21 @@ import {statistics} from "./plugins/statistics";
 
 let token = process.env.BOT_TOKEN
 
-const bot = new Bot<MarlaContext>(`${token}`)
+export const bot = new Bot<MarlaContext>(`${token}`)
 
 bot.use(marlaMiddleware)
 
 // load plugins
 bot.use(statistics);
 
-bot.command("start", async (ctx) => {
-	await ctx.reply("Ky")
-})
-
-bot.on('message:text', async(ctx) => {
-	await ctx.m.reply("text")
-	console.log(ctx.m)
-})
+// bot.command("start", async (ctx) => {
+// 	await ctx.reply("Ky")
+// })
+//
+// bot.on('message:text', async(ctx) => {
+// 	await ctx.m.reply("text")
+// 	console.log(ctx.m)
+// })
 
 async function start() {
 	bot.start()

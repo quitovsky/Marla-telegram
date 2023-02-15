@@ -11,8 +11,9 @@ datasource db {
 }
 
 model StickersStat {
-  id        Int @id @default(autoincrement())
-  chatId    Int
-  senderId  Int
-  stickerId Int
+  id              Int    @id @default(autoincrement())
+  chatId          BigInt
+  senderId        BigInt
+  stickerFileId   String
+  stickerUniqueId String
 }
