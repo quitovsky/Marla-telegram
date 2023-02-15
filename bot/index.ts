@@ -13,15 +13,6 @@ bot.use(marlaMiddleware)
 // load plugins
 bot.use(statistics);
 
-// bot.command("start", async (ctx) => {
-// 	await ctx.reply("Ky")
-// })
-//
-// bot.on('message:text', async(ctx) => {
-// 	await ctx.m.reply("text")
-// 	console.log(ctx.m)
-// })
-
 async function start() {
 	bot.start()
 		.catch(console.log)
