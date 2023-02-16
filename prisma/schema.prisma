@@ -22,3 +22,9 @@ model StickersStat {
   stickerFileId   String
   stickerUniqueId String
 }
+
+model CommandsMediaData {
+  id Int @id @default(autoincrement())
+  command String
+  fileId String
+}

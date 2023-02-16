@@ -1,0 +1,1 @@
+export type systemCommandName = "kotiki" | "123"
