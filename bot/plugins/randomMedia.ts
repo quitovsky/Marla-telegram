@@ -11,7 +11,7 @@ async function getMedia(command: systemCommandName): Promise<any[]> {
    `);
 }
 
-composer.hears(/!(котик)|(киттик)|(китик)|(123)/i, async (ctx) => {
+composer.hears(/!(котик)|(киттик)|(китик)/i, async (ctx) => {
     const attach = await getMedia('kotiki')
     if(attach.length) {
         await ctx.replyWithSticker(attach[0].fileId)
