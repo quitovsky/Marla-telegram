@@ -6,6 +6,7 @@ import {MarlaContext} from "./utils/types/context";
 import {marlaMiddleware} from "./middlewares/main";
 import statistics from "./plugins/statistics";
 import randomMedia from "./plugins/randomMedia";
+import publicChatsLink from "./plugins/publicChatsLink";
 
 
 let token = process.env.BOT_TOKEN
@@ -16,7 +17,8 @@ bot.use(marlaMiddleware)
 
 // load plugins
 bot.use(statistics);
-bot.use(randomMedia)
+bot.use(randomMedia);
+bot.use(publicChatsLink);
 
 async function start() {
 	bot.start()
