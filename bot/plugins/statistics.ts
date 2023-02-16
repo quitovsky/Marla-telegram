@@ -2,9 +2,9 @@ import {Composer} from "grammy";
 import prisma from "../lib/prisma";
 import {MarlaContext} from "../utils/types/context";
 import {onlyForChats} from "../utils/messages";
-export const statistics = new Composer<MarlaContext>()
+const composer = new Composer<MarlaContext>()
 
-statistics.on("message:sticker", async ctx => {
+composer.on("message:sticker", async ctx => {
 	if(!ctx.isPrivate) {
 		const data = {
 			chatId: ctx.chat.id,
@@ -18,7 +18,7 @@ statistics.on("message:sticker", async ctx => {
 	}
 })
 
-statistics.hears(/^!(топстик)|(topstic)|(топстикер)|(тстикер)/i, async ctx => {
+composer.hears(/^!(топстик)|(topstic)|(топстикер)|(тстикер)/i, async ctx => {
 	if(ctx.isPrivate) return ctx.reply(onlyForChats)
 	const data: any[] = await prisma.$queryRawUnsafe(`SELECT stickerUniqueId as id, stickerFileId as file, count(*) as count FROM StickersStat WHERE chatId=${ctx.chat.id} GROUP BY stickerUniqueId ORDER BY count DESC LIMIT 1`)
 	if(data.length > 0) {
@@ -30,3 +30,5 @@ statistics.hears(/^!(топстик)|(topstic)|(топстикер)|(тстик�
 		await ctx.reply("В чате не было ни одного стикера")
 	}
 })
+
+export default composer;

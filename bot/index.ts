@@ -2,7 +2,8 @@ import "dotenv/config"
 import { Bot } from 'grammy'
 import {MarlaContext} from "./utils/types/context";
 import {marlaMiddleware} from "./middlewares/main";
-import {statistics} from "./plugins/statistics";
+import statistics from "./plugins/statistics";
+import randomMedia from "./plugins/randomMedia";
 
 let token = process.env.BOT_TOKEN
 
@@ -12,6 +13,7 @@ bot.use(marlaMiddleware)
 
 // load plugins
 bot.use(statistics);
+bot.use(randomMedia)
 
 async function start() {
 	bot.start()
