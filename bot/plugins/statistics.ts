@@ -20,7 +20,7 @@ composer.on("message:sticker", async ctx => {
 
 composer.hears(/^!(топстик)|(topstic)|(топстикер)|(тстикер)/i, async ctx => {
 	if(ctx.isPrivate) return ctx.reply(onlyForChats)
-	const data: any[] = await prisma.$queryRawUnsafe(`SELECT stickerUniqueId as id, stickerFileId as file, count(*) as count FROM StickersStat WHERE chatId=${ctx.chat.id} GROUP BY stickerUniqueId ORDER BY count DESC LIMIT 1`)
+	const data: any[] = await prisma.$queryRawUnsafe(`SELECT "stickerUniqueId" as "id", "stickerFileId" as "file", count(*) as "count" FROM "StickersStat" WHERE "chatId"=${ctx.chat.id} GROUP BY "stickerUniqueId" ORDER BY "count" DESC LIMIT 1`)
 	if(data.length > 0) {
 		await ctx.reply(`
 	Самый используемый стикер, который был отправлен в этом чате ${data[0].count} раз:

@@ -7,11 +7,11 @@ const composer = new Composer<MarlaContext>()
 
 async function getMedia(command: systemCommandName): Promise<any[]> {
     return prisma.$queryRawUnsafe(`
-    SELECT fileId FROM CommandsMediaData WHERE command='${command}' ORDER BY random() LIMIT 1
+    SELECT "fileId" FROM "CommandsMediaData" WHERE "command"='${command}' ORDER BY random() LIMIT 1
    `);
 }
 
-composer.hears(/!(котик)|(киттик)|(китик)/i, async (ctx) => {
+composer.hears(/!(котик)|(киттик)|(китик)|(123)/i, async (ctx) => {
     const attach = await getMedia('kotiki')
     if(attach.length) {
         await ctx.replyWithSticker(attach[0].fileId)
