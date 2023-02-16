@@ -1,9 +1,11 @@
-import "dotenv/config"
+import dotenv from "dotenv"
+dotenv.config({ path: path.join(__dirname, '.env')})
 import { Bot } from 'grammy'
 import {MarlaContext} from "./utils/types/context";
 import {marlaMiddleware} from "./middlewares/main";
 import statistics from "./plugins/statistics";
 import randomMedia from "./plugins/randomMedia";
+import path from "path";
 
 let token = process.env.BOT_TOKEN
 
