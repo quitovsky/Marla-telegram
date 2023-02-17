@@ -18,3 +18,8 @@
 /prisma/dev.db
 /prisma/dev.db-journal
 /prisma/migrations
+
+# server
+/server/pnpm-lock.yaml
+/server/node_modules
+/server/.env
