@@ -31,4 +31,4 @@ async function start() {
 	}, 100)
 }
 
-start();
+export default start
