@@ -10,9 +10,11 @@ export default function () {
         data: "Loading data..."
     })
 
+    const host = process.env.NEXTT_PUBLIC_HOST || "https://marla.su"
+
     useEffect(() => {
         if(id) {
-            fetch(process.env.NEXT_PUBLIC_HOST + ":3000/api/chat/" + id).then(res => res.json()).then(setResponse)
+            fetch(host + "/api/chat/" + id).then(res => res.json()).then(setResponse)
 
         }
     },  [id])
