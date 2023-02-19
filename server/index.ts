@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: path.join(__dirname, ".env")})
 import { PrismaClient } from "@prisma/client"
 import express from "express";
+import fs from 'fs'
 import * as process from "process";
 import chat from "./routes/chat";
 
@@ -20,6 +21,16 @@ app.get("/", async (req,res) => {
 })
 
 async function start() {
+    try {
+        const options = {
+            key: fs.readFileSync("/root/.ssl/marla.su.key"),
+            cert: fs.readFileSync("/root/.ssl/marla.su.pem")
+        }
+        const https = require('https').createServer(options, app)
+        https.listen(2087, () => console.log(`Listening production on https://marla.su:2087`))
+    } catch (e) {
+        console.log(e)
+    }
     app.listen(PORT, () => console.log("Listening on http://localhost:" + PORT))
 }
 
